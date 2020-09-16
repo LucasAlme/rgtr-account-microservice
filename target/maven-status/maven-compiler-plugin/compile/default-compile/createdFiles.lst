@@ -1,0 +1,7 @@
+com\riotgames\account\model\dto\CreateAccountDTO.class
+com\riotgames\account\controller\AccountController.class
+com\riotgames\account\model\Account.class
+com\riotgames\account\repository\AccountRepository.class
+com\riotgames\account\AccountApplication.class
+com\riotgames\account\service\AccountService.class
+com\riotgames\account\config\SwaggerConfig.class

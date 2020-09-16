@@ -1,0 +1,7 @@
+C:\ws\rgtr-account-microservice\src\main\java\com\riotgames\account\model\dto\CreateAccountDTO.java
+C:\ws\rgtr-account-microservice\src\main\java\com\riotgames\account\AccountApplication.java
+C:\ws\rgtr-account-microservice\src\main\java\com\riotgames\account\controller\AccountController.java
+C:\ws\rgtr-account-microservice\src\main\java\com\riotgames\account\config\SwaggerConfig.java
+C:\ws\rgtr-account-microservice\src\main\java\com\riotgames\account\model\Account.java
+C:\ws\rgtr-account-microservice\src\main\java\com\riotgames\account\service\AccountService.java
+C:\ws\rgtr-account-microservice\src\main\java\com\riotgames\account\repository\AccountRepository.java
