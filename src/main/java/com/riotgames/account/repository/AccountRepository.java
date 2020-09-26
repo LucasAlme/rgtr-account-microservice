@@ -8,4 +8,7 @@ import com.riotgames.account.model.Account;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, String> {
 
+	Account findByUsername(String username);
+	
+
 }

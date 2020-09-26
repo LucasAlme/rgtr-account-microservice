@@ -11,10 +11,10 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class LoginAccountDTO implements Serializable {
+public class DefineAccountDTO implements Serializable {
+	 
+	private static final long serialVersionUID = -966144775845740508L;
 
-	private static final long serialVersionUID = -2937664764435424520L;
 	private String username;
-	private String password;
-
+	private String playerName;
 }
