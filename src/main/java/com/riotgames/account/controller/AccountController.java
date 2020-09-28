@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.riotgames.account.model.Account;
 import com.riotgames.account.model.dto.CreateAccountDTO;
-import com.riotgames.account.model.dto.DefineAccountDTO;
+import com.riotgames.account.model.dto.DefinePlayerNameAccountDTO;
 import com.riotgames.account.model.dto.LoginAccountDTO;
 import com.riotgames.account.model.dto.RedefinePasswordDTO;
 import com.riotgames.account.service.AccountService;
@@ -52,9 +52,9 @@ public class AccountController {
 	}
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, path = "/define-playername")
-	public ResponseEntity<Account> defineAccount(@RequestBody DefineAccountDTO dto) throws Exception {
+	public ResponseEntity<Account> definePlayerNameAccount(@RequestBody DefinePlayerNameAccountDTO dto) throws Exception {
 		try {
-			Account account = service.defineAccount(dto);
+			Account account = service.definePlayerNameAccount(dto);
 			if (account != null) {
 				return new ResponseEntity<Account>(account, HttpStatus.OK);
 			} else {

@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class DefineAccountDTO implements Serializable {
+public class DefinePlayerNameAccountDTO implements Serializable {
 	 
 	private static final long serialVersionUID = -966144775845740508L;
 

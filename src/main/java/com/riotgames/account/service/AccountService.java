@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.riotgames.account.model.Account;
 import com.riotgames.account.model.dto.CreateAccountDTO;
-import com.riotgames.account.model.dto.DefineAccountDTO;
+import com.riotgames.account.model.dto.DefinePlayerNameAccountDTO;
 import com.riotgames.account.model.dto.LoginAccountDTO;
 import com.riotgames.account.model.dto.RedefinePasswordDTO;
 import com.riotgames.account.repository.AccountRepository;
@@ -45,13 +45,13 @@ public class AccountService {
 
 	}
 
-	public Account defineAccount(DefineAccountDTO defineAccountDTO) {
+	public Account definePlayerNameAccount(DefinePlayerNameAccountDTO definePlayerNameAccountDTO) {
 		Account account = new Account();
-		account.setUsername(defineAccountDTO.getUsername());
+		account.setUsername(definePlayerNameAccountDTO.getUsername());
 
 		Account accountUpdate = repository.findByUsername(account.getUsername());
 		if (accountUpdate != null) {
-			accountUpdate.setPlayerName(defineAccountDTO.getPlayerName());
+			accountUpdate.setPlayerName(definePlayerNameAccountDTO.getPlayerName());
 			return repository.save(accountUpdate);
 		}
 		return null;
