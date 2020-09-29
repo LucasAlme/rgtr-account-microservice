@@ -28,12 +28,17 @@ public class AccountController {
 	AccountService service;
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, path = "/create-account")
-	public ResponseEntity<Account> createAccount(@RequestBody CreateAccountDTO dto) {
+	public ResponseEntity<Account> createAccount(@RequestBody CreateAccountDTO dto) throws Exception {
 		try {
 			Account account = service.createAccount(dto);
-			return new ResponseEntity<Account>(account, HttpStatus.CREATED);
+			if (account != null) {
+				return new ResponseEntity<Account>(account, HttpStatus.CREATED);
+			} else {
+				return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+			}
+
 		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			throw new Exception(e);
 		}
 	}
 
@@ -53,7 +58,8 @@ public class AccountController {
 	}
 
 	@PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, path = "/define-playername")
-	public ResponseEntity<Account> definePlayerNameAccount(@RequestBody DefinePlayerNameAccountDTO dto) throws Exception {
+	public ResponseEntity<Account> definePlayerNameAccount(@RequestBody DefinePlayerNameAccountDTO dto)
+			throws Exception {
 		try {
 			Account account = service.definePlayerNameAccount(dto);
 			if (account != null) {
@@ -66,6 +72,7 @@ public class AccountController {
 			throw new Exception(e);
 		}
 	}
+
 	@PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, path = "/redefine-password")
 	public ResponseEntity<Account> redefinePassword(@RequestBody RedefinePasswordDTO dto) throws Exception {
 		try {
@@ -80,6 +87,7 @@ public class AccountController {
 			throw new Exception(e);
 		}
 	}
+
 	@PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, path = "/redefine-region")
 	public ResponseEntity<Account> redefineRegion(@RequestBody RedefineRegionDTO dto) throws Exception {
 		try {

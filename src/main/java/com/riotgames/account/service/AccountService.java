@@ -26,7 +26,12 @@ public class AccountService {
 		account.setIsAdEmail(dto.getIsAdEmail());
 		account.setIsTerms(dto.getIsTerms());
 		account.setRegion(dto.getRegion());
-		return repository.save(account);
+		if(account.getIsTerms() == true) {
+			return repository.save(account);
+		}else {
+			return null;
+		}
+		
 	}
 	
 	public Account loginAccount(LoginAccountDTO loginAccountDTO) {
