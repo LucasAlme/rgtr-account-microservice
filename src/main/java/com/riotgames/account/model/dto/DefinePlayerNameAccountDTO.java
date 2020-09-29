@@ -17,4 +17,16 @@ public class DefinePlayerNameAccountDTO implements Serializable {
 
 	private String username;
 	private String playerName;
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPlayerName() {
+		return playerName;
+	}
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
 }

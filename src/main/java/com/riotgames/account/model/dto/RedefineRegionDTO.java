@@ -2,6 +2,8 @@ package com.riotgames.account.model.dto;
 
 import java.io.Serializable;
 
+import com.riotgames.account.service.Region;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -11,22 +13,23 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class LoginAccountDTO implements Serializable {
-
-	private static final long serialVersionUID = -2937664764435424520L;
+public class RedefineRegionDTO implements Serializable{
+	
+	
+	private static final long serialVersionUID = 9120878411052664532L;
 	private String username;
-	private String password;
+	private Region region;
+	
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPassword() {
-		return password;
+	public Region getRegion() {
+		return region;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setRegion(Region region) {
+		this.region = region;
 	}
-
 }

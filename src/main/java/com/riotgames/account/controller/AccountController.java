@@ -14,6 +14,7 @@ import com.riotgames.account.model.dto.CreateAccountDTO;
 import com.riotgames.account.model.dto.DefinePlayerNameAccountDTO;
 import com.riotgames.account.model.dto.LoginAccountDTO;
 import com.riotgames.account.model.dto.RedefinePasswordDTO;
+import com.riotgames.account.model.dto.RedefineRegionDTO;
 import com.riotgames.account.service.AccountService;
 
 import io.swagger.annotations.Api;
@@ -79,4 +80,19 @@ public class AccountController {
 			throw new Exception(e);
 		}
 	}
+	@PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, path = "/redefine-region")
+	public ResponseEntity<Account> redefineRegion(@RequestBody RedefineRegionDTO dto) throws Exception {
+		try {
+			Account account = service.redefineRegion(dto);
+			if (account != null) {
+				return new ResponseEntity<Account>(account, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+			}
+
+		} catch (Exception e) {
+			throw new Exception(e);
+		}
+	}
+
 }

@@ -8,6 +8,7 @@ import com.riotgames.account.model.dto.CreateAccountDTO;
 import com.riotgames.account.model.dto.DefinePlayerNameAccountDTO;
 import com.riotgames.account.model.dto.LoginAccountDTO;
 import com.riotgames.account.model.dto.RedefinePasswordDTO;
+import com.riotgames.account.model.dto.RedefineRegionDTO;
 import com.riotgames.account.repository.AccountRepository;
 
 @Service
@@ -24,9 +25,10 @@ public class AccountService {
 		account.setUsername(dto.getUsername());
 		account.setIsAdEmail(dto.getIsAdEmail());
 		account.setIsTerms(dto.getIsTerms());
+		account.setRegion(dto.getRegion());
 		return repository.save(account);
 	}
-
+	
 	public Account loginAccount(LoginAccountDTO loginAccountDTO) {
 
 		Account account = new Account();
@@ -75,5 +77,19 @@ public class AccountService {
 			
 		}
 		return null;
+	}
+	public Account redefineRegion(RedefineRegionDTO redefineRegionDTO) {
+		Account account = new Account();
+		account.setUsername(redefineRegionDTO.getUsername());
+		
+		//Disponiveis apenas essas regiôes: BRAZIL, OCEANIA, EU, NA, LA, TURKEY, ASIA
+		
+		Account accountUpdate = repository.findByUsername(account.getUsername());
+		if (accountUpdate != null) {
+			accountUpdate.setRegion(redefineRegionDTO.getRegion());
+			return repository.save(accountUpdate);
+		}
+		return null;
+
 	}
 }
